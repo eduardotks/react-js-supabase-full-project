@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import Sobre from "./components/Sobre";
 import Financa from "./components/Financa";
 //----
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 //para criar rotas
 import {
   Button,
@@ -18,35 +18,13 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"; //import css boostrap
 
-/*
-      <BrowserRouter>
-        <Nav variant="tabs">
-          <Nav.Link as={Link} to="/">
-            Página Inicial
-          </Nav.Link>
-          <Nav.Link as={Link} to="/financa">
-            Cadastro Financa
-          </Nav.Link>
-          <Nav.Link as={Link} to="/sobre">
-            Sobre
-          </Nav.Link>
-        </Nav>
-
-        <Routes>
-          <Route path="/" index element={<Home />}></Route>
-          <Route path="/financa" element={<Financa />}></Route>
-          <Route path="/sobre" element={<Sobre />}></Route>
-        </Routes>
-      </BrowserRouter>
-*/
-
 export default function App() {
   return (
     <div className="">
       <BrowserRouter>
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" variant="dark">
           <Container fluid>
-            <Navbar.Brand href="#">WebApp</Navbar.Brand>
+            <Navbar.Brand as={NavLink}  to="/" href="/">WebApp</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
@@ -54,13 +32,13 @@ export default function App() {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Nav.Link to="/" href="/">
+                <Nav.Link as={NavLink} to="/" href="/">
                   Home
                 </Nav.Link>
-                <Nav.Link to="/financa" href="/financa">
+                <Nav.Link as={NavLink} to="/financa" href="/financa">
                   Finança
                 </Nav.Link>
-                <Nav.Link to="/sobre" href="/sobre">
+                <Nav.Link as={NavLink} to="/sobre" href="/sobre">
                   Sobre
                 </Nav.Link>
                 {/*
