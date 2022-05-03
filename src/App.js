@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 //---
 import Home from "./components/Home";
 import Sobre from "./components/Sobre";
-import Financa from "./components/Financa";
+import Financeiro from "./components/Financeiro";
+import FetchApi from "./components/FetchApi";
 //----
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 //para criar rotas
@@ -24,7 +25,9 @@ export default function App() {
       <BrowserRouter>
         <Navbar bg="dark" variant="dark">
           <Container fluid>
-            <Navbar.Brand as={NavLink}  to="/" href="/">WebApp</Navbar.Brand>
+            <Navbar.Brand as={NavLink} to="/" href="/">
+              WebApp
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
@@ -35,14 +38,27 @@ export default function App() {
                 <Nav.Link as={NavLink} to="/" href="/">
                   Home
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/financa" href="/financa">
-                  Finança
-                </Nav.Link>
-                <Nav.Link as={NavLink} to="/sobre" href="/sobre">
-                  Sobre
-                </Nav.Link>
-                {/*
+                <NavDropdown title="Treinamentos" id="navbarScrollingDropdown">
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/financeiro"
+                    href="/financeiro"
+                  >
+                    Financeiro
+                  </NavDropdown.Item>
+                 
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
+                </NavDropdown>
                 <NavDropdown title="Outros" id="navbarScrollingDropdown">
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/fetchapi"
+                    href="/fetchapi"
+                  >
+                    Fetch Api GitHub
+                  </NavDropdown.Item>
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
                     {" "}
@@ -54,10 +70,11 @@ export default function App() {
                   </NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link href="#" disabled>
-                  Outros
+                  Example
                 </Nav.Link>
-
-                */}
+                <Nav.Link as={NavLink} to="/sobre" href="/sobre">
+                  Sobre
+                </Nav.Link>
               </Nav>
               <Form className="d-flex">
                 <FormControl
@@ -72,11 +89,12 @@ export default function App() {
           </Container>
         </Navbar>
         <div className="container">
-          <br/>
+          <br />
           <Routes>
             <Route path="/" index element={<Home />}></Route>
-            <Route path="/financa" element={<Financa />}></Route>
+            <Route path="/financeiro" element={<Financeiro />}></Route>
             <Route path="/sobre" element={<Sobre />}></Route>
+            <Route path="/fetchapi" element={<FetchApi />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
