@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Sobre from "./components/Sobre";
 import Financeiro from "./components/Financeiro";
 import FetchApi from "./components/FetchApi";
+import Geolocalizador from "./components/Geolocalizador";
 //----
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 //para criar rotas
@@ -26,7 +27,7 @@ export default function App() {
         <Navbar bg="dark" variant="dark">
           <Container fluid>
             <Navbar.Brand as={NavLink} to="/" href="/">
-              WebApp
+              ToolsApp
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
@@ -46,7 +47,7 @@ export default function App() {
                   >
                     Financeiro
                   </NavDropdown.Item>
-                 
+
                   <NavDropdown.Item href="#action5">
                     Something else here
                   </NavDropdown.Item>
@@ -58,6 +59,13 @@ export default function App() {
                     href="/fetchapi"
                   >
                     Fetch Api GitHub
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/geolocalizador"
+                    href="/geolocalizador"
+                  >
+                    Geo Localizador
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
@@ -95,6 +103,7 @@ export default function App() {
             <Route path="/financeiro" element={<Financeiro />}></Route>
             <Route path="/sobre" element={<Sobre />}></Route>
             <Route path="/fetchapi" element={<FetchApi />}></Route>
+            <Route path="/geolocalizador" element={<Geolocalizador />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
