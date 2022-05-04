@@ -1,7 +1,7 @@
 function Sobre() {
     return (
       <div>
-        <p>Olá aqui é a Sobre</p>
+        <p>Sistema para treinamentos de diversos tipos funcionalidades e ser útil a qualquer momento de necessidade.</p>
       </div>
     );
   }
