@@ -24,7 +24,7 @@ function Treinamento() {
   useEffect(() => {
     (async () => {
       const resposta = await fetch(
-        "https://api.github.com/users/dreackdown/repos"
+        "https://api.github.com/users/eduardotks/repos"
       );
       const data = await resposta.json();
       console.log(data);
