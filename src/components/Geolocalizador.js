@@ -29,7 +29,12 @@ function Geolocalizador() {
 
   return (
     <div>
-        <p>Geo Localizador, permita o navegador buscar a localização</p>
+      <p>Geo Localizador, permita o navegador buscar a localização</p>
+      <p>
+        Para alterar a localização e verificar a mudança de estado vá no inspect
+        (F12) do browser, procure pelos 3 pontinhos e depois por "mais
+        ferramentas // sensores", altere os locais e veja a mudança.
+      </p>
       Latitude: {location.latitude}
       <br />
       Longitude: {location.longitude}
