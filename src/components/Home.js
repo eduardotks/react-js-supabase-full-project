@@ -17,7 +17,6 @@ function Home() {
   return (
     <div>
       <h4>Welcome</h4>
-
       <ul>
         <li>
           <a target="_blank" href="https://react-bootstrap.github.io/" class="link-info">
@@ -25,8 +24,13 @@ function Home() {
           </a>
         </li>
         <li>
+          <a target="_blank" href="https://supabase.com/docs/" class="link-info">
+            Firebase Supabase Docs
+          </a>
+        </li>
+        <li>
           <a target="_blank" href="https://app.supabase.io/" class="link-info">
-            Firebase Supabase
+            Firebase Supabase Config
           </a>
         </li>
       </ul>
