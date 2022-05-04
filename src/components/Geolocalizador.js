@@ -9,7 +9,10 @@ function Geolocalizador() {
   //
   useEffect(() => {
     //api global, note que watchPosition retorna um number
-    navigator.geolocation.watchPosition(positionReceived);
+    const watchId = navigator.geolocation.watchPosition(positionReceived);
+
+    //retorna uma função toda vez que o componente for desmontado. a ideia é ser como willunmount
+    return () => navigator.geolocation.clearWatch(watchId);
   }, []);
 
   //coords vem da api, e para acessar o objeto deve estar em chaves {coords}
