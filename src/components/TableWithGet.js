@@ -1,11 +1,9 @@
-import {
-  Table,
-} from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"; //import css boostrap
 import React, { useState, useEffect } from "react";
 import { supabase } from "../supabaseClient";
 
-function Financeiro() {
+function TableWithGet() {
   //definir estado
 
   const [infoTable, setTable] = useState([]);
@@ -22,8 +20,7 @@ function Financeiro() {
   return (
     <div>
       {/* */}
-      <p>Financeiro</p>
-      {/* */}
+      <p>Populando Tabela</p>
       {/* */}
       <Table striped bordered hover>
         <thead>
@@ -53,4 +50,4 @@ function Financeiro() {
   );
 }
 
-export default Financeiro;
+export default TableWithGet;

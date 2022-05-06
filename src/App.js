@@ -5,6 +5,7 @@ import Sobre from "./components/Sobre";
 import Financeiro from "./components/Financeiro";
 import FetchApi from "./components/FetchApi";
 import Geolocalizador from "./components/Geolocalizador";
+import Tablewithget from "./components/TableWithGet";
 //----
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 //para criar rotas
@@ -53,6 +54,7 @@ export default function App() {
                   </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Outros" id="navbarScrollingDropdown">
+                  {/*----------------------------------------------------*/}
                   <NavDropdown.Item
                     as={NavLink}
                     to="/fetchapi"
@@ -60,6 +62,7 @@ export default function App() {
                   >
                     Fetch Api GitHub
                   </NavDropdown.Item>
+                  {/*----------------------------------------------------*/}
                   <NavDropdown.Item
                     as={NavLink}
                     to="/geolocalizador"
@@ -67,22 +70,42 @@ export default function App() {
                   >
                     Geo Localizador
                   </NavDropdown.Item>
+                  {/*----------------------------------------------------*/}
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  {/*----------------------------------------------------*/}
                   <NavDropdown.Item href="#action4">
                     {" "}
                     Another action
                   </NavDropdown.Item>
+                  {/*----------------------------------------------------*/}
                   <NavDropdown.Divider />
+                  {/*----------------------------------------------------*/}
                   <NavDropdown.Item href="#action5">
                     Something else here
                   </NavDropdown.Item>
+                  {/*----------------------------------------------------*/}
                 </NavDropdown>
+
+                <NavDropdown title="Tabelas" id="navbarScrollingDropdown">
+                  {/*----------------------------------------------------*/}
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/tablewithget"
+                    href="/tablewithget"
+                  >
+                    Get Tabela
+                  </NavDropdown.Item>
+                  {/*----------------------------------------------------*/}
+                </NavDropdown>
+                {/*----------------------------------------------------*/}
                 <Nav.Link href="#" disabled>
                   Example
                 </Nav.Link>
+                {/*----------------------------------------------------*/}
                 <Nav.Link as={NavLink} to="/sobre" href="/sobre">
                   Sobre
                 </Nav.Link>
+                {/*----------------------------------------------------*/}
               </Nav>
               <Form className="d-flex">
                 <FormControl
@@ -104,6 +127,7 @@ export default function App() {
             <Route path="/sobre" element={<Sobre />}></Route>
             <Route path="/fetchapi" element={<FetchApi />}></Route>
             <Route path="/geolocalizador" element={<Geolocalizador />}></Route>
+            <Route path="/tableWithGet" element={<Tablewithget />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
