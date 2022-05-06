@@ -96,6 +96,22 @@ export default function App() {
                     Get Tabela
                   </NavDropdown.Item>
                   {/*----------------------------------------------------*/}
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/tablewithinsert"
+                    href="/tablewithinsert"
+                  >
+                    Insert Tabela
+                  </NavDropdown.Item>
+                  {/*----------------------------------------------------*/}
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/tablewithupdate"
+                    href="/tablewithupdate"
+                  >
+                    Update Tabela
+                  </NavDropdown.Item>
+                  {/*----------------------------------------------------*/}
                 </NavDropdown>
                 {/*----------------------------------------------------*/}
                 <Nav.Link href="#" disabled>
