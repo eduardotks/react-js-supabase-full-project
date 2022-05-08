@@ -1,5 +1,5 @@
 [build]
 
-base = "/opt/build/repo"
-command = "npm run build"
-publish: "/opt/build/repo/build"
+base = "."
+command = "CI='' npm run build"
+publish = "./build/"
