@@ -6,3 +6,7 @@ Sistema desenvolvido em react js para treinamentos e com múltiplas implementaç
 ### `npm install react-router-dom --save`
 ### `npm install @types/react-router-dom --save`
 ### `npm start`
+
+# Sistema rodando no Netlify
+
+### <p><a href="https://main--fabulous-semolina-d55e1c.netlify.app/" target="_blank">Confira</a></p>
