@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+//import React, { useState, useEffect } from "react";
 //---
 import Home from "./components/Home";
 import Sobre from "./components/Sobre";
@@ -7,14 +7,13 @@ import FetchApi from "./components/FetchApi";
 import Geolocalizador from "./components/Geolocalizador";
 import Tablewithget from "./components/TableWithGet";
 //----
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 //para criar rotas
 import {
   Button,
   Nav,
   Navbar,
   Container,
-  Offcanvas,
   NavDropdown,
   Form,
   FormControl,
