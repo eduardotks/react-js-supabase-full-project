@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css"; //import css boostrap
 
 function Home() {
+  //Set
+  document.title = "Tools App"
   return (
     <div>
       <h4>Welcome</h4>

@@ -2,10 +2,11 @@ import React from "react";
 //---
 import Home from "./components/Home";
 import Sobre from "./components/Sobre";
-import Financeiro from "./components/Financeiro";
-import FetchApi from "./components/FetchApi";
-import Geolocalizador from "./components/Geolocalizador";
-import Tablewithget from "./components/TableWithGet";
+import Financeiro from "./components/Treinamentos/Financeiro";
+import FetchApi from "./components/Outros/FetchApi";
+import Geolocalizador from "./components/Outros/Geolocalizador";
+import Tablewithget from "./components/Tabelas/TableWithGet";
+import Tablewithinsert from "./components/Tabelas/TableWithInsert";
 //----
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 //para criar rotas
@@ -143,6 +144,7 @@ export default function App() {
             <Route path="/fetchapi" element={<FetchApi />}></Route>
             <Route path="/geolocalizador" element={<Geolocalizador />}></Route>
             <Route path="/tableWithGet" element={<Tablewithget />}></Route>
+            <Route path="/tableWithInsert" element={<Tablewithinsert />}></Route>
           </Routes>
         </div>
       </BrowserRouter>

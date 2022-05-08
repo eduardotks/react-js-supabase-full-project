@@ -1,11 +1,10 @@
 import { Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"; //import css boostrap
 import React, { useState, useEffect } from "react";
-import { supabase } from "../supabaseClient";
+import { supabase } from "../../supabaseClient";
 
 function TableWithGet() {
   //definir estado
-
   const [infoTable, setTable] = useState([]);
 
   useEffect(() => {
@@ -20,7 +19,7 @@ function TableWithGet() {
   return (
     <div>
       {/* */}
-      <p>Populando Tabela</p>
+      <p>Inserindo na tabela com informações de campos input.</p>
       {/* */}
       <Table striped bordered hover>
         <thead>
