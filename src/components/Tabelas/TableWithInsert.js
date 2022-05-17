@@ -3,11 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css"; //import css boostrap
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../supabaseClient";
 
-function TableWithGet() {
+function TableWithInsert() {
   //definir estado
   const [infoTable, setTable] = useState([]);
   const [validated, setValidated] = useState(false);
-  const [dadosForm, setInsert] = useState([]);
+  //const [dadosForm, setInsert] = useState([]);
 
   //
   const handleSubmit = (event) => {
@@ -142,4 +142,4 @@ function TableWithGet() {
   );
 }
 
-export default TableWithGet;
+export default TableWithInsert;

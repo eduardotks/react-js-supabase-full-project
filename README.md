@@ -5,8 +5,9 @@ Sistema desenvolvido em react js para treinamentos e com múltiplas implementaç
 ### `npm install react-bootstrap bootstrap`
 ### `npm install react-router-dom --save`
 ### `npm install @types/react-router-dom --save`
-### `npm start`
 ### `npm install --save sweetalert2 sweetalert2-react-content`
+### `npm start`
+
 
 # Sistema rodando no Netlify
 
