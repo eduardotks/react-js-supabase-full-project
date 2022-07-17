@@ -11,4 +11,4 @@ Sistema desenvolvido em react js para treinamentos e com múltiplas implementaç
 
 # Sistema rodando no Netlify
 
-### <p><a href="https://main--fabulous-semolina-d55e1c.netlify.app/" target="_blank">Confira</a></p>
+### <p><a href="https://project-react-eduardotks.netlify.app/" target="_blank">Confira</a></p>
