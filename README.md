@@ -6,6 +6,7 @@ Sistema desenvolvido em react js para treinamentos e com múltiplas implementaç
 ##### `npm install react-router-dom --save`
 ##### se necessário: `npm install @types/react-router-dom --save`
 ##### `npm install --save sweetalert2 sweetalert2-react-content`
+##### `npm install moment`
 ##### `npm start`
 
 

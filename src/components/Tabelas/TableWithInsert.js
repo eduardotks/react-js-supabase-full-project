@@ -3,56 +3,44 @@ import "bootstrap/dist/css/bootstrap.min.css"; //import css boostrap
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { supabase } from "../../supabaseClient";
+import * as moment from 'moment';
 
 function TableWithInsert() {
   //definir estado
   const [infoTable, setTable] = useState([]);
-  const {register, handleSubmit} = useForm();
-  /*
-  const [validated, setValidated] = useState(false);
- 
-  
-
-  //validação
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    console.log("validated > ", validated);
-    debugger;
-    console.log("dados > ", form);
-
-    event.preventDefault(); //evita reload na página
-    setValidated(true);
-  };
-  */
+  const { register, handleSubmit } = useForm();
 
   //populando tabela com informações do supabase
   useEffect(() => {
     (async () => {
       let { data } = await supabase.from("financas").select("*");
-      console.log(data);
+      //console.log(data);
       //const data = await res.json();
       setTable(data);
     })();
   }, []);
   //-------------------------------------------------------------------
 
- 
   const onSubmit = (dataForm) => {
     (async () => {
-      const { data, error } = await supabase.from("financas").insert([dataForm]);
+      const { data, error } = await supabase
+        .from("financas")
+        .insert([dataForm]); //insert
 
       if (!data) {
-        console.log(error);
+        //console.log(error);
       } else {
-        console.log(data);
+        //console.log(">>> ", data);
+        (async () => {
+          let { data } = await supabase.from("financas").select("*");
+          //console.log(data);
+          //const data = await res.json();
+          setTable(data);
+        })();
       }
       //const data = await res.json();
     })();
-    console.log(dataForm);
+    //console.log("data form >>", dataForm);
   };
   //console.log(errors);
   //populando tabela com informações do supabase
@@ -65,8 +53,8 @@ function TableWithInsert() {
       {/* FORMS */}
       <Form noValidate onSubmit={handleSubmit(onSubmit)}>
         <Row className="mb-3">
-          {/* -------------------------------------------------------------- */}
-          <Form.Group as={Col} md="4" controlId="validationCustom01">
+          {/* -----------------------------TÍTULO--------------------------------- */}
+          <Form.Group as={Col} md="3" controlId="validationCustom01">
             <Form.Label>Título</Form.Label>
             <Form.Control
               required
@@ -80,8 +68,8 @@ function TableWithInsert() {
               Please provide a correct information.
             </Form.Control.Feedback>
           </Form.Group>
-          {/* -------------------------------------------------------------- */}
-          <Form.Group as={Col} md="3" controlId="validationCustom02">
+          {/* ----------------------------Tipo---------------------------------- */}
+          <Form.Group as={Col} md="2" controlId="validationCustom02">
             <Form.Label>Tipo</Form.Label>
             <Form.Control
               required
@@ -94,8 +82,8 @@ function TableWithInsert() {
               Please provide a correct information.
             </Form.Control.Feedback>
           </Form.Group>
-          {/* -------------------------------------------------------------- */}
-          <Form.Group as={Col} md="3" controlId="validationCustom03">
+          {/* ----------------------------Categoria---------------------------------- */}
+          <Form.Group as={Col} md="2" controlId="validationCustom03">
             <Form.Label>Categoria</Form.Label>
             <Form.Control
               required
@@ -108,7 +96,7 @@ function TableWithInsert() {
               Please provide a correct information.
             </Form.Control.Feedback>
           </Form.Group>
-          {/* -------------------------------------------------------------- */}
+          {/* ------------------------------Valor-------------------------------- */}
           <Form.Group as={Col} md="2" controlId="validationCustom04">
             <Form.Label>Valor</Form.Label>
             <Form.Control
@@ -116,6 +104,22 @@ function TableWithInsert() {
               type="number"
               placeholder="Digite..."
               {...register("valor", { required: true })}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please provide a correct information.
+            </Form.Control.Feedback>
+          </Form.Group>
+          {/* --------------------------------DATA------------------------------ */}
+          <Form.Group as={Col} md="3" controlId="validationCustom05">
+            <Form.Label>Data de Criação</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              
+              value={new Date().toLocaleDateString('en-CA')}
+              placeholder={new Date().toLocaleDateString('en-CA')}
+              {...register("data_criacao", { required: true })}
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
@@ -156,7 +160,7 @@ function TableWithInsert() {
               <td>{rep.tipo}</td>
               <td>{rep.categoria}</td>
               <td>{rep.valor}</td>
-              <td>{rep.data_criacao}</td>
+              <td>{rep.data_criacao != null ? moment(rep.data_criacao).format('DD/MM/YYYY') : "Não cadastrado"}</td>
             </tr>
           ))}
         </tbody>
