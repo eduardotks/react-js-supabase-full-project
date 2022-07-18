@@ -8,7 +8,7 @@ import * as moment from 'moment';
 function TableWithInsert() {
   //definir estado
   const [infoTable, setTable] = useState([]);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit , setValue} = useForm();
 
   //populando tabela com informações do supabase
   useEffect(() => {
@@ -20,12 +20,14 @@ function TableWithInsert() {
     })();
   }, []);
   //-------------------------------------------------------------------
-
+  
   const onSubmit = (dataForm) => {
+    console.log("id: " );
     (async () => {
       const { data, error } = await supabase
         .from("financas")
-        .insert([dataForm]); //insert
+        .update([dataForm]) //insert
+        .match({ id: dataForm.id });
 
       if (!data) {
         console.log(error);
@@ -42,9 +44,7 @@ function TableWithInsert() {
     })();
     //console.log("data form >>", dataForm);
   };
-  //console.log(errors);
-  //populando tabela com informações do supabase
-  //-------------------------------------------------------------------
+
 
   return (
     <div>
@@ -53,6 +53,22 @@ function TableWithInsert() {
       {/* FORMS */}
       <Form noValidate onSubmit={handleSubmit(onSubmit)}>
         <Row className="mb-3">
+          {/* -----------------------------ID--------------------------------- */}
+          <Form.Group as={Col} md="3" controlId="validationCustom00">
+            <Form.Label>Id</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              readOnly={true}
+              
+              
+              /*defaultValue="Mark"*/
+            />
+            <Form.Control.Feedback>Parece bom!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please provide a correct information.
+            </Form.Control.Feedback>
+          </Form.Group>
           {/* -----------------------------TÍTULO--------------------------------- */}
           <Form.Group as={Col} md="3" controlId="validationCustom01">
             <Form.Label>Título</Form.Label>
@@ -118,7 +134,8 @@ function TableWithInsert() {
               type="text"
               
               value={new Date().toLocaleDateString('en-CA')}
-              placeholder={new Date().toLocaleDateString('en-CA')}
+
+
               {...register("data_criacao", { required: true })}
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -127,15 +144,6 @@ function TableWithInsert() {
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
-        {/* -------------------------------------------------------------- */}
-        <Form.Group className="mb-3">
-          <Form.Check
-            required
-            label="Agree to terms and conditions"
-            feedback="You must agree before submitting."
-            feedbackType="invalid"
-          />
-        </Form.Group>
         {/* -------------------------------------------------------------- */}
         <Button type="submit">Salvar</Button>
       </Form>
@@ -150,6 +158,7 @@ function TableWithInsert() {
             <th>Categoria</th>
             <th>Valor</th>
             <th>Data de Criação</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -161,6 +170,22 @@ function TableWithInsert() {
               <td>{rep.categoria}</td>
               <td>{rep.valor}</td>
               <td>{rep.data_criacao != null ? moment(rep.data_criacao).format('DD/MM/YYYY') : "Não cadastrado"}</td>
+              <td>
+                <button
+                  type="button"
+                  id={rep.id}
+                  className="btn btn-info"
+                  onClick={(e) => {
+                    document.querySelector("#validationCustom00").value = e.target.id;
+                    setValue("id", rep.id);
+                    setValue("titulo", rep.titulo);
+                    setValue("tipo", rep.tipo);
+                    setValue("categoria", rep.categoria);
+                    setValue("valor", rep.valor);
+                    
+                  }}
+                >Edit</button>
+              </td>
             </tr>
           ))}
         </tbody>

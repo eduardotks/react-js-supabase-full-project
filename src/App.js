@@ -7,6 +7,7 @@ import FetchApi from "./components/Outros/FetchApi";
 import Geolocalizador from "./components/Outros/Geolocalizador";
 import Tablewithget from "./components/Tabelas/TableWithGet";
 import Tablewithinsert from "./components/Tabelas/TableWithInsert";
+import Tablewithupdate from "./components/Tabelas/TableWithUpdate";
 //----
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 //para criar rotas
@@ -145,6 +146,7 @@ export default function App() {
             <Route path="/geolocalizador" element={<Geolocalizador />}></Route>
             <Route path="/tableWithGet" element={<Tablewithget />}></Route>
             <Route path="/tableWithInsert" element={<Tablewithinsert />}></Route>
+            <Route path="/tableWithUpdate" element={<Tablewithupdate />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
