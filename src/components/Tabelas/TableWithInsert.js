@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { supabase } from "../../supabaseClient";
 import * as moment from 'moment';
-
+import "./Table.css";
 function TableWithInsert() {
   //definir estado
   const [infoTable, setTable] = useState([]);
@@ -13,7 +13,7 @@ function TableWithInsert() {
   //populando tabela com informações do supabase
   useEffect(() => {
     (async () => {
-      let { data } = await supabase.from("financas").select("*");
+      let { data } = await supabase.from("financas").select("*").order('id', { ascending: true });
       //console.log(data);
       //const data = await res.json();
       setTable(data);
@@ -32,7 +32,7 @@ function TableWithInsert() {
       } else {
         //console.log(">>> ", data);
         (async () => {
-          let { data } = await supabase.from("financas").select("*");
+          let { data } = await supabase.from("financas").select("*").order('id', { ascending: true });
           //console.log(data);
           //const data = await res.json();
           setTable(data);

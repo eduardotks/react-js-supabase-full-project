@@ -2,7 +2,7 @@ import { Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css"; //import css boostrap
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../supabaseClient";
-
+import "./Table.css";
 function TableWithGet() {
   //definir estado
 
@@ -10,7 +10,7 @@ function TableWithGet() {
 
   useEffect(() => {
     (async () => {
-      let { data } = await supabase.from("financas").select("*");
+      let { data } = await supabase.from("financas").select("*").order('id', { ascending: true });
       console.log(data);
       //const data = await res.json();
       setTable(data);
